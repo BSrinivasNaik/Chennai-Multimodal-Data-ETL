@@ -1,56 +1,28 @@
-# Chennai Multimodal Data ETL Project
-
-This project contains Data ETL (Extract, Transform, Load) scripts for the Chennai Multimodal project, which processes transportation data from multiple modes of transit in Chennai, India.
+# Multimodal Transport Data ETL & Pre-processing
 
 ## Overview
+This project contains ETL (Extract, Transform, Load) jobs and data processing scripts for multiple modes of transport in Chennai, including Suburban Rail, Bus, and Metro data. The goal is to prepare, standardize, and validate transit data for use in a unified Multimodal Journey Planner and related applications.
 
-The project handles data conversion from various transit modes (Bus, Metro, and Suburban) into GTFS (General Transit Feed Specification) format. This standardized format is then consumed by OpenTripPlanner (OTP) to power the Chennai Multimodal application.
+## Updated Goals of Pre-processing (Bus, Suburban Railway, Metro) Data for a Multimodal App
 
-## Data Sources
+- **Standardization** – Unify data formats (GTFS, time zones, location schema).
+- **De-duplication** – Eliminate route/stop overlaps across modes.
+- **Validation** – Detect errors in timings, coordinates, trip patterns.
+- **Correction via Ops Agents** – Use local human agents to verify/correct mismatches in stops, paths, and schedules.
+- **Enrichment** – Tag data with mode, operator, fare type, service category.
+- **Visualization** – Map routes/stops for manual QA, ops feedback, and debugging.
+- **Integration-ready Output** – Output clean, unified data for journey planner/API use.
 
-The project processes data from three main transit modes:
-- Bus transit data
-- Metro transit data
-- Suburban rail data
+## Subfolders & Components
+- **Chennai Suburban- data/** – Raw and processed data for Suburban Rail.
+- **Chennai Bus- Routes Visualisation dashboard/** – Dashboard for visualizing and QA of bus routes and stops.
+- **Compare Chennai SuburbanStations_ CRIS vs InternalTable/** – Tools for comparing and validating station lists.
+- **Chennai Suburban- Train Schedules dive/** – Contains train schedule data (CSV and JSON) and scripts for converting and processing suburban train schedules for integration into the multimodal journey planner.
 
-## Data Processing Workflow
+## How to Use
+1. Run ETL scripts in each subfolder to process and clean the data.
+2. Use the visualization dashboards for manual QA and feedback.
+3. Final output is a set of standardized, validated, and enriched datasets ready for integration into the Chennai Multimodal app or journey planner APIs.
 
-1. **Data Extraction**: Raw data is extracted from various sources including:
-   - CSV files (e.g., Stations Master DB)
-   - JSON files (e.g., validStations)
-   - Other transit-specific data sources
-
-2. **Data Transformation**: The extracted data is transformed to:
-   - Standardize station codes and names
-   - Convert schedules and routes to GTFS format
-   - Validate and clean the data
-
-3. **Data Loading**: The processed GTFS data is:
-   - Validated against GTFS specifications
-   - Prepared for consumption by OTP
-   - Made available for the Chennai Multimodal application
-
-## Project Structure
-
-The project includes scripts and tools for:
-- Station code validation and mapping
-- Schedule conversion
-- Route processing
-- GTFS generation
-- Data validation
-
-## Usage
-
-[To be added: Instructions for running the ETL scripts and generating GTFS data]
-
-## Dependencies
-
-[To be added: List of required software and libraries]
-
-## Contributing
-
-[To be added: Guidelines for contributing to the project]
-
-## License
-
-[To be added: Project license information] 
+---
+For more details, see the README files in each subfolder. 
