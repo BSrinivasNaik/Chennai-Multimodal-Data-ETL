@@ -3,6 +3,11 @@
 ## Overview
 This project provides an interactive dashboard for visualizing bus routes in Chennai. It enables users to explore each route, view the sequence of stops, and see stop names on a map or in tabular form. The dashboard is designed to empower operations agents to identify, review, and fix route data as part of the data pre-processing workflow for the Chennai Multimodal app.
 
+## Data Preparation (NEW)
+- All route data files in `Route Data- CUMTA/` are zipped into `route_data_cumta.zip` for easier storage and transfer.
+- Use the provided `zip_data.sh` script to create the zip file.
+- The application will automatically unzip `route_data_cumta.zip` before processing, using the utility in `src/utils/unzipData.ts`.
+
 ## Key Features
 - **Route Visualisation:**
   - Visualizes all bus routes in Chennai using data from CUMTA and other sources.
@@ -25,7 +30,7 @@ The main aim of this dashboard is to support the data pre-processing phase for t
 
 ## How It Works
 1. **Data Loading:**
-   - Loads route and stop data from provided CSV or JSON files (see `Route Data- CUMTA/` for examples).
+   - Loads route and stop data from the unzipped files in `Route Data- CUMTA/` (automatically unzipped from `route_data_cumta.zip` if needed).
 2. **Visualisation:**
    - Renders routes and stops on an interactive map and in tables.
    - Allows users to select a route and view its stop sequence and details.
@@ -37,16 +42,21 @@ The main aim of this dashboard is to support the data pre-processing phase for t
    ```bash
    npm install
    ```
-2. Start the development server:
+2. (Optional) To zip the data files:
+   ```bash
+   ./zip_data.sh
+   ```
+3. Start the development server:
    ```bash
    npm run dev
    ```
-3. Open your browser and go to [http://localhost:3000](http://localhost:3000)
+4. The app will unzip the data before processing if needed.
+5. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
 ## Folder Structure
 - `src/` - Main application source code
 - `public/` - Static assets
-- `Route Data- CUMTA/` - Example data files
+- `Route Data- CUMTA/` - Example data files (zipped as `route_data_cumta.zip`)
 
 ## For Operations Agents
 - Use the dashboard to review all routes and their stop sequences.

@@ -36,6 +36,8 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Call the unzip API before loading data
+        await fetch('/api/unzip-data');
         const data = await parseCSVData('/data/routes.csv');
         setRouteData(data);
         
